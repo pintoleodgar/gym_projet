@@ -120,4 +120,5 @@ minutos(900, 144, homem=False, mais40=False)   # 75
 |---|---|
 | `gym_calorias.py` | Calorias vs género, idade e peso |
 | `gym_clusters.py` | Tempo por género, previsão da duração, K-Means |
-| `gym_duracao.py` | Duração prevista a partir das calorias |
+| `gym_formula_invertida.py` | Fuga de informação: duração "prevista" a partir das calorias |
+| `gym_auditoria.py` | Provas de que o dataset é sintético |

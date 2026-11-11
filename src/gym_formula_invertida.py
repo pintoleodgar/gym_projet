@@ -1,4 +1,4 @@
-"""Prever a duração da sessão a partir das calorias, por género."""
+"""Fuga de informação: "prever" a duração com as calorias é inverter a fórmula que as gerou."""
 import numpy as np, pandas as pd
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -55,10 +55,10 @@ for g, s in df.groupby("gender"):
     b1, b0 = np.polyfit(s.cal, s.dur, 1)
     ax[0].plot(xs, b0 + b1 * xs, color=COR[g], lw=2.5, label=ROTULO[g])
     ax[1].scatter(s.dur, p[s.index], s=10, alpha=.35, color=COR[g], label=ROTULO[g])
-ax[0].set(title="Para as mesmas calorias, as mulheres ficam mais tempo",
+ax[0].set(title="Mesmas calorias, mais tempo nas mulheres: é o fator k da fórmula",
           xlabel="Calorias queimadas (kcal)", ylabel="Duração da sessão (h)")
 ax[1].plot([.5, 2], [.5, 2], color="gray", ls="--", lw=1)
-ax[1].set(title="Duração real vs prevista (calorias + género + idade>40)",
+ax[1].set(title="Duração real vs \"prevista\" com as calorias (fuga de informação)",
           xlabel="Duração real (h)", ylabel="Duração prevista (h)")
 for a in ax: a.legend(frameon=False); a.spines[["top", "right"]].set_visible(False)
-fig.tight_layout(); fig.savefig(out / "gym_duracao.png", dpi=130)
+fig.tight_layout(); fig.savefig(out / "gym_formula_invertida.png", dpi=130)
